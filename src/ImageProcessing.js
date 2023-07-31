@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const API_URI = process.env.API_URI;
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ImageProcessing() {
   const [file, setFile] = useState(null);
@@ -35,11 +35,10 @@ function ImageProcessing() {
 
     try {
       const response = await axios.post(
-        API_URI,
+        API_URL,
         data
       );
       setNotification(response.data.message);
-      // Resetting the fields
       setFile(null);
       setEmail("");
       setWidth("");
